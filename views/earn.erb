@@ -1,0 +1,49 @@
+<h2>Добавить доход</h2>
+
+
+<form action="/earn" method="POST">
+
+  <div class="form-group">
+    <label>Статья</label>
+    <input name="how" type="text" class="form-control" placeholder="Источник дохода">
+  </div>
+
+
+  <div class="form-group">
+  	<label>Кто</label>
+  </br>
+  	<input name="username" type="text" class="form-control" placeholder="Имя Отчество">
+  </div>
+
+
+  <div class="form-group">
+    <label>Сумма</label>
+    <div class="input-group">
+      <div class="input-group-addon">BYN</div>
+      <input name="num" type="text" class="form-control" placeholder="Сумма">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label>Дата</label>
+  </br>
+    <input name="date" type="date" class="form-control" placeholder="Дата получения">
+  </div>
+
+
+
+<select size="5" name="select">
+    <option disabled>Роль в семье</option>
+    <option selected="Отец">Отец</option>
+    <option value="Мать">Мать</option>
+    <option value="Дедушка">Дедушка</option>
+    <option value="Бабушка">Бабушка</option>
+    <option value="Сын">Сын</option>
+    <option value="Дочь">Дочь</option>
+   </select></p>
+
+  <button type="submit" class="btn btn-primary">Добавить доход</button>
+
+</form>

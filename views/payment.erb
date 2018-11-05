@@ -1,0 +1,22 @@
+<h2>Добавить расход</h2>
+
+<form action="/payment" method="POST">
+
+  <div class="form-group">
+    <label>Статья</label>
+    <input name="how" type="text" class="form-control" placeholder="На что расход">
+  </div>
+
+  <div class="form-group">
+    <label>Сумма</label>
+    <div class="input-group">
+      <div class="input-group-addon">BYN</div>
+      <input name="num" type="text" class="form-control" placeholder="Сумма">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+
+ <button type="submit" class="btn btn-primary">Добавить расход</button>
+
+
+</form>
