@@ -1,7 +1,25 @@
 #encoding: utf-8
+
+$LOAD_PATH.unshift('.')
+
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'sqlite3'
+
+configure do
+	@db = SQLite3::Database.new 'db/family_money.db'
+	@db.execute 'CREATE TABLE IF NOT EXISTS
+		"Earnings"
+		(
+			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
+			"date" TEXT,
+			"sourse" TEXT,
+			"username" TEXT,
+			"family_role" TEXT,
+			"amount" INTEGER
+		);'
+end
 
 get '/' do
 	erb :admin
@@ -29,11 +47,11 @@ get '/earn' do
 end
 
 post '/earn' do	
-	@how = params[:how]
+	@how = params[:sourse]
 	@username = params[:username]
-	@num = params[:num]
+	@num = params[:amount]
 	@date = params[:date]
-	@select = params[:select]
+	@select = params[:family_role]
 
 	f = File.open 'public/earn.txt', "a"
 	f.write "Z\n#{@date}\n#{@how}\n#{@username}\n#{@select}\n#{@num}\n"
@@ -52,8 +70,8 @@ get '/payment' do
 end
 
 post '/payment' do	
-	@how = params[:how]
-	@num = params[:num]
+	@how = params[:sourse]
+	@num = params[:amount]
 
 	f = File.open 'public/payment.txt', "a"
 	f.write "Z\n#{@date}\n#{@how}\n#{@username}\n#{@select}\n#{@num}\n"

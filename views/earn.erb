@@ -5,7 +5,7 @@
 
   <div class="form-group">
     <label>Статья</label>
-    <input name="how" type="text" class="form-control" placeholder="Источник дохода">
+    <input name="sourse" type="text" class="form-control" placeholder="Источник дохода">
   </div>
 
 
@@ -20,7 +20,7 @@
     <label>Сумма</label>
     <div class="input-group">
       <div class="input-group-addon">BYN</div>
-      <input name="num" type="text" class="form-control" placeholder="Сумма">
+      <input name="amount" type="text" class="form-control" placeholder="Сумма">
       <div class="input-group-addon">.00</div>
     </div>
   </div>
@@ -33,16 +33,18 @@
   </div>
 
 
-
-<select size="5" name="select">
-    <option disabled>Роль в семье</option>
-    <option selected="Отец">Отец</option>
-    <option value="Мать">Мать</option>
-    <option value="Дедушка">Дедушка</option>
-    <option value="Бабушка">Бабушка</option>
-    <option value="Сын">Сын</option>
-    <option value="Дочь">Дочь</option>
-   </select></p>
+<div class='form-group'>
+  <label>Роль в семье</label>
+</br>
+  <select class="form-control" name="family_role">
+    <option <%= @family_role == 'Отец' ? 'selected' : '' %>>Отец</option>
+    <option <%= @family_role == 'Мать' ? 'selected' : '' %>>Мать</option>
+    <option <%= @family_role == 'Дедушка' ? 'selected' : '' %>>Дедушка</option>
+    <option <%= @family_role == 'Бабушка' ? 'selected' : '' %>>Бабушка</option>
+    <option <%= @family_role == 'Сын' ? 'selected' : '' %>>Сын</option>
+    <option <%= @family_role == 'Дочь' ? 'selected' : '' %>>Дочь</option>
+   </select>
+ </div>
 
   <button type="submit" class="btn btn-primary">Добавить доход</button>
 
