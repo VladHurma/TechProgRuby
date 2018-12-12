@@ -7,9 +7,13 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+def get_db
+	return SQLite3::Database.new 'db/family_money.db'
+end
+
 configure do
-	@db = SQLite3::Database.new 'db/family_money.db'
-	@db.execute 'CREATE TABLE IF NOT EXISTS
+	db = get_db
+	db.execute 'CREATE TABLE IF NOT EXISTS
 		"Earnings"
 		(
 			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,7 +22,14 @@ configure do
 			"username" TEXT,
 			"family_role" TEXT,
 			"amount" INTEGER
-		);'
+		)'
+	db.execute 'CREATE TABLE IF NOT EXISTS
+		"Payings"
+		(
+			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
+			"sourse" TEXT,
+			"amount" INTEGER
+		)'
 end
 
 get '/' do
@@ -46,20 +57,12 @@ get '/earn' do
 	erb :earn
 end
 
-post '/earn' do	
-	@how = params[:sourse]
-	@username = params[:username]
-	@num = params[:amount]
-	@date = params[:date]
-	@select = params[:family_role]
+post '/earn' do
 
-	f = File.open 'public/earn.txt', "a"
-	f.write "Z\n#{@date}\n#{@how}\n#{@username}\n#{@select}\n#{@num}\n"
-	f.close
-
-	r = File.open 'public/allearn.txt', "a"
-	r.write "#{@num}\n"
-	r.close
+	db = get_db
+	db.execute 'INSERT INTO
+	Earnings (date, sourse, username, family_role, amount)
+	values (?, ?, ?, ?, ?)', [params[:date], params[:sourse], params[:username], params[:family_role], params[:amount]]
 
 	erb :earn
 end
@@ -70,16 +73,11 @@ get '/payment' do
 end
 
 post '/payment' do	
-	@how = params[:sourse]
-	@num = params[:amount]
 
-	f = File.open 'public/payment.txt', "a"
-	f.write "Z\n#{@date}\n#{@how}\n#{@username}\n#{@select}\n#{@num}\n"
-	f.close
-
-	r = File.open 'public/allpay.txt', "a"
-	r.write "#{@num}\n"
-	r.close
+	db = get_db
+	db.execute 'INSERT INTO
+	Payings (sourse, amount)
+	values (?, ?)', [params[:sourse], params[:amount]]
 
 	erb :payment
 end
