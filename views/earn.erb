@@ -1,5 +1,10 @@
 <h2>Добавить доход</h2>
 
+<script type="text/javascript">
+$(function () {
+  $('#datetimepicker').datetimepicker();
+})
+</script>
 
 <form action="/earn" method="POST">
 
@@ -10,9 +15,9 @@
 
 
   <div class="form-group">
-  	<label>Кто</label>
+    <label>Кто</label>
   </br>
-  	<input name="username" type="text" class="form-control" placeholder="Имя Отчество">
+    <input name="username" type="text" class="form-control" placeholder="Имя Отчество">
   </div>
 
 
@@ -29,7 +34,7 @@
   <div class="form-group">
     <label>Дата</label>
   </br>
-    <input name="date" type="date" class="form-control" placeholder="Дата получения">
+    <input id="datetimepicker" name="date" type="text" class="form-control" placeholder="Дата получения">
   </div>
 
 

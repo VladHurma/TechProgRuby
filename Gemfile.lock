@@ -10,6 +10,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.4)
       tilt (~> 2.0)
+    sqlite3 (1.3.13)
+    sqlite3 (1.3.13-x64-mingw32)
     tilt (2.0.8)
 
 PLATFORMS
@@ -18,6 +20,7 @@ PLATFORMS
 
 DEPENDENCIES
   sinatra
+  sqlite3
 
 BUNDLED WITH
-   1.16.1
+   1.17.1

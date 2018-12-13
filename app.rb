@@ -1,7 +1,5 @@
 #encoding: utf-8
 
-$LOAD_PATH.unshift('.')
-
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
