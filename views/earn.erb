@@ -1,18 +1,6 @@
 <h2>Добавить доход</h2>
 
-<script type="text/javascript">
-$(function () {
-  $('#datetimepicker').datetimepicker();
-})
-</script>
-
-<form action="/earn" method="POST">
-
-  <div class="form-group">
-    <label>Статья</label>
-    <input name="sourse" type="text" class="form-control" placeholder="Источник дохода">
-  </div>
-
+<form action="/secure/earn" method="POST">
 
   <div class="form-group">
     <label>Кто</label>
@@ -20,23 +8,16 @@ $(function () {
     <input name="username" type="text" class="form-control" placeholder="Имя Отчество">
   </div>
 
-
   <div class="form-group">
-    <label>Сумма</label>
-    <div class="input-group">
-      <div class="input-group-addon">BYN</div>
-      <input name="amount" type="text" class="form-control" placeholder="Сумма">
-      <div class="input-group-addon">.00</div>
-    </div>
+    <label>Статья</label>
+    <input name="sourse" type="text" class="form-control" placeholder="Источник дохода">
   </div>
-
 
   <div class="form-group">
     <label>Дата</label>
   </br>
-    <input id="datetimepicker" name="date" type="text" class="form-control" placeholder="Дата получения">
+    <input name="date" type="date" class="form-control" placeholder="Дата получения">
   </div>
-
 
 <div class='form-group'>
   <label>Роль в семье</label>
@@ -49,7 +30,27 @@ $(function () {
     <option <%= @family_role == 'Сын' ? 'selected' : '' %>>Сын</option>
     <option <%= @family_role == 'Дочь' ? 'selected' : '' %>>Дочь</option>
    </select>
- </div>
+</div>
+
+<div class='form-group'>
+  <label>Счет</label>
+</br>
+  <select class="form-control" name="placeholder_of_earning">
+    <option <%= @family_role == 'Основной счет' ? 'selected' : '' %>>Основной счет</option>
+    <option <%= @family_role == 'Накопления' ? 'selected' : '' %>>Накопления</option>
+    <option <%= @family_role == 'Заначка' ? 'selected' : '' %>>Заначка</option>
+   </select>
+</div>
+
+  <div class="form-group">
+    <label>Сумма</label>
+    <div class="input-group">
+      <div class="input-group-addon">BYN</div>
+      <input name="amount" type="text" class="form-control" placeholder="Сумма">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+
 
   <button type="submit" class="btn btn-primary">Добавить доход</button>
 

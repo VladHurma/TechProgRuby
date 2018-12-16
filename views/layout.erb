@@ -8,11 +8,9 @@
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<script src="/vendor/jquery-3.3.1.min.js"></script>
+		<script src="/vendor/jquery-3.2.1.slim.min.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="jquery.datetimepicker.js"></script>
-		<link rel="stylesheet" href="jquery.datetimepicker.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,8 +35,11 @@
 			  </div>
 			  <div class="navbar-collapse collapse">
 			    <ul class="nav navbar-nav">
-			      <li><a href="/earn">Добавить доход</a></li>
-			      <li><a href="/payment">Добавить расход</a></li>
+			      <li><a href="/secure/table_of_family">Общая таблица бюджета</a></li>
+			      <li><a href="/secure/earn">Добавить доход</a></li>
+			      <li><a href="/secure/fact_payment">Добавить фактический расход</a></li>
+			      <li><a href="/secure/planned_payment">Добавить запланированный расход</a></li>
+			      <li><a href="/logout">Выйти из системы</a></li>
 			    </ul>
 			  </div><!--/.nav-collapse -->
 			</nav>
@@ -50,16 +51,10 @@
 			      <%= yield %>
 			</div>
 
-	</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-<%#
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/vendor/jquery-1.9.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-    
-    <script src="jquery.datetimepicker.js"></script>
-	<link rel="stylesheet" href="jquery.datetimepicker.css">
-	%>
+	</div>
   </body>
 </html>

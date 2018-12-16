@@ -1,0 +1,105 @@
+<table class="table table-hover">
+  <table class="table table-hover">
+  <thead> 
+    <tr>
+      <th>Доходы</th>
+      <th>Дата</th>
+      <th>Статья</th>
+      <th>Имя</th>
+      <th>Роль в семье</th>
+      <th>Счет хранения</th>
+      <th>Сумма</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @table_content[:earn_content].each do |row| %>
+    <tr>
+      <% row.each do |element| %>
+        <td><%= element %></td>
+      <% end %>
+    <% end %>
+    </tr>
+    <tr>
+      <%= '<td></td>' * 6 %>
+      <td><%= @table_content[:sum_of_earnings] %></td>
+    </tr>
+  </tbody>
+
+  <thead> 
+    <tr>
+      <th>Фактические расходы</th>
+      <th>Дата</th>
+      <th>Статья</th>
+      <th>Имя</th>
+      <th> </th> <th> </th>
+      <th>Сумма</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @table_content[:fact_pay_content].each do |row| %>
+    <tr>
+    <td><%= row[0] %></td>
+    <td><%= row[1] %></td>
+    <td><%= row[2] %></td>
+    <td><%= row[3] %></td>
+    <td></td><td></td>
+    <td><%= row[4] %></td>
+    <% end %>
+    </tr>
+    <tr>
+      <%= '<td></td>' * 6 %>
+      <td><%= @table_content[:sum_of_fact_payings] %></td>
+    </tr>
+  </tbody>
+
+    <thead> 
+    <tr>
+      <th>Запланированные расходы</th>
+      <th></th>
+      <th>Статья</th>
+      <th></th>
+      <th></th><th></th>
+      <th>Сумма</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @table_content[:planned_pay_content].each do |row| %>
+    <tr>
+    <td><%= row[0] %></td>
+    <td></td>
+    <td><%= row[1] %></td>
+    <td></td>
+    <td></td><td></td>
+    <td><%= row[2] %></td>
+    <% end %>
+    </tr>
+    <tr>
+      <%= '<td></td>' * 6 %>
+      <td><%= @table_content[:sum_of_planned_payings] %></td>
+    </tr>
+  </tbody>
+
+  <thead> 
+    <tr>
+      <th>Итого</th>
+      <th>Доход</th>
+      <th> </th>
+      <th>Расход</th>
+      <th> </th> <th> </th>
+      <th>Бюджет</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td></td>
+      <td><%= @table_content[:sum_of_earnings] %></td>
+      <td></td>
+      <td><%= @table_content[:sum_of_fact_payings] %></td>
+      <td></td><td></td>
+      <td><%= @table_content[:result_money] %></td>
+  </tbody>
+</table>
